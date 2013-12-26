@@ -1,2 +1,5 @@
 ---
-# vars file for dockerize-unpack
+dockerize_unpack:
+  image_tag: latest
+  script_rev: master
+  script_addl_args: -e DOCKERIZE_UNPACK=true
