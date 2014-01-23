@@ -1,5 +1,6 @@
 ---
-dockerize_unpack:
+dockerize_unpack_example:
+  image_name: quay.io/myorg/myrepo-name
   image_tag: latest
   script_rev: master
   script_addl_args: -e DOCKERIZE_UNPACK=true
