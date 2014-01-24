@@ -15,4 +15,4 @@ galaxy_info:
   - packaging
   - system
   dependencies:
-  - docker
+  - { role: docker }

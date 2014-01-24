@@ -1,2 +1,13 @@
 ---
-# tasks file for dockerize-unpack
+- name: install dockerize-unpack script
+  get_url:
+    dest=/usr/local/bin/dockerize-unpack
+    force=yes
+    url="https://raw.github.com/modcloth-labs/dockerize/{{ dockerize_unpack.script_rev }}/bin/dockerize-unpack"
+    mode=0755
+  tags:
+    - dockerize
+    - dockerize-unpack
+
+- name: run dockerize-unpack script
+  shell: /usr/local/bin/dockerize-unpack "{{ dockerize_unpack.image_name }}:{{ dockerize_unpack.image_tag }}" "{{ dockerize_unpack.script_addl_args }}"
