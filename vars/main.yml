@@ -1,6 +1,12 @@
 ---
-dockerize_unpack_example:
-  image_name: quay.io/myorg/myrepo-name
-  image_tag: latest
-  script_rev: master
-  script_addl_args: -e DOCKERIZE_UNPACK=true
+dockerize_unpack_list_example: # variable should be named dockerize_unpack_list
+  -
+    image_name: quay.io/myorg/myrepo-name
+    image_tag: latest
+    script_rev: master
+    script_addl_args: -e DOCKERIZE_UNPACK=true
+  -
+    image_name: quay.io/myorg/myrepo2-name
+    image_tag: latest
+    script_rev: master
+    script_addl_args: -e DOCKERIZE_UNPACK=true
