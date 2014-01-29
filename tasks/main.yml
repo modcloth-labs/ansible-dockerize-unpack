@@ -9,5 +9,10 @@
     - dockerize
     - dockerize-unpack
 
+- name: pull docker container
+  action: shell docker pull "{{ item.image_name }}:{{ item.image_tag }}"
+  with_items: dockerize_unpack_list
+
 - name: run dockerize-unpack script
-  shell: /usr/local/bin/dockerize-unpack "{{ dockerize_unpack.image_name }}:{{ dockerize_unpack.image_tag }}" "{{ dockerize_unpack.script_addl_args }}"
+  shell: /usr/local/bin/dockerize-unpack "{{ item.image_name }}:{{ item.image_tag }}" "{{ item.script_addl_args }}"
+  with_items: dockerize_unpack_list
