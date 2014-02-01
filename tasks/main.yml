@@ -3,7 +3,7 @@
   get_url:
     dest=/usr/local/bin/dockerize-unpack
     force=yes
-    url="https://raw.github.com/modcloth-labs/dockerize/{{ dockerize_unpack.script_rev }}/bin/dockerize-unpack"
+    url="https://raw.github.com/modcloth-labs/dockerize/{{ dockerize_unpack_list[0].script_rev }}/bin/dockerize-unpack"
     mode=0755
   tags:
     - dockerize
@@ -16,3 +16,4 @@
 - name: run dockerize-unpack script
   shell: /usr/local/bin/dockerize-unpack "{{ item.image_name }}:{{ item.image_tag }}" "{{ item.script_addl_args }}"
   with_items: dockerize_unpack_list
+  environment: "{{ item.env_vars }}"
